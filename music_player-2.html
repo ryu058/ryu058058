@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음원 재생</title>
+</head>
+<body>
+    <h1>음원이 재생됩니다...</h1>
+    
+    <!-- 음원 파일을 재생하는 오디오 태그 -->
+    <audio id="myAudio" controls autoplay>
+        <source src="https://www.dropbox.com/scl/fi/mdddd6843zb6bdboqu3w7/audio_0_-_.mp3?rlkey=pf8nxdqsrz60ghqpv6g5kabhk&st=vr6mwyr0&raw=1" type="audio/mpeg">
+        브라우저가 오디오 태그를 지원하지 않습니다.
+    </audio>
+
+    <script>
+        // 오디오 엘리먼트를 가져옴
+        var audio = document.getElementById('myAudio');
+        
+        // 음원 재생이 끝났을 때 실행되는 함수
+        audio.onended = function() {
+            // QR 스캐너 앱을 다시 여는 intent 호출
+            window.location.href = 'intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end;';
+        };
+    </script>
+</body>
+</html>
